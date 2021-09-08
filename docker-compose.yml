@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  backend:
+    build: ./backend
+    container_name: "mfsd_backend"
+    ports:
+      - "5000:5000"
+  frontend:
+    build: ./frontend
+    container_name: "mfsd_frontend"
+    ports:
+      - "80:80"
