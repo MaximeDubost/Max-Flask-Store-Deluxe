@@ -1,4 +1,6 @@
 build:
   docker:
-    frontend: frontend/Dockerfile
-    backend: backend/Dockerfile
+    mfsd_backend: backend/Dockerfile
+    mfsd_frontend: frontend/Dockerfile
+  run:
+    mfsd_backend: python3 app.py 
