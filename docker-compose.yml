@@ -1,12 +1,24 @@
 version: "3.9"
 services:
+
   backend:
     build: ./backend
     container_name: "mfsd_backend"
     ports:
       - "5000:5000"
+    healthcheck:
+      test: "curl --fail http://127.0.0.1:5000 || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   frontend:
     build: ./frontend
     container_name: "mfsd_frontend"
     ports:
       - "80:80"
+    healthcheck:
+      test: "curl --fail http://127.0.0.1:80/index.html || exit 1"
+      interval: 10s
+      timeout: 5s
+      retries: 5
