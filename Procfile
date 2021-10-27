@@ -1,1 +1,1 @@
-mfsd_backend: python3 app.py
+web: docker-compose up --build -d

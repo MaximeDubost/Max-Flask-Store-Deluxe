@@ -2,12 +2,20 @@
 
 ## Sommaire
 
-// TODO
-
+  - [Présentation globale du projet](#prsentation-globale-du-projet)
+  - [Présentation de la partie frontend](#prsentation-de-la-partie-frontend)
+    - [**Contenu**](#contenu)
+    - [**Lancement**](#lancement)
+    - [**Utilisation**](#utilisation)
+  - [Présentation de la partie backend](#prsentation-de-la-partie-backend)
+    - [**Contenu**](#contenu)
+    - [**Lancement**](#lancement)
+    - [**Utilisation**](#utilisation)
+  - [Présentation de la base de données](#prsentation-de-la-base-de-donnes)
+  - [Build du projet](#build-du-projet)
+  - [Annexes](#annexes)
 
 <br>
-
-___
 
 ## Présentation globale du projet
 
@@ -19,13 +27,13 @@ Le projet est divisé en deux sous-projets :
 - `mfsd_frontend_1` correspondant à l'IHM du projet
 - `mfsd_backend_1` correspondant à l'API du projet
 
+<img src="img/MFSD.png" width="720"/>
+
 Le frontend est une application web développée en HTML, CSS et JavaScript. Celui-ci fait appel au backend, qui est un webservice développé en Python Flask. La base de données est intégrée dans le projet backend et utilise SQLite, SQLAlchemy et Marshmallow.
 
 Chaque sous projet est intégré dans un conteneur Docker à part entière et déployé sur Heroku.
 
 <br>
-
-___
 
 ## Présentation de la partie frontend
 
@@ -33,7 +41,7 @@ ___
 
 ### **Contenu**
 
-**mfsd_frontend_1** est une application web type e-commerce développée en HTML, CSS et JavaScript.
+*MFSD frontend* est une application web type e-commerce développée en HTML, CSS et JavaScript.
 
 L'IHM de l'application permet de visulaliser les produits d'un shop en ligne.
 
@@ -47,7 +55,11 @@ Celle-ci dispose donc de **2** routes :
 
 ### **Lancement**
 
-Aucune action n'est requise pour le lancement du frontend. Il suffit simplement d'accéder à l'URL suivi du port `:80` et de spécifier l'une des deux routes disponibles.
+L'API est déployée dans un conteneur Docker et fonctionne sur l'adresse suivante :
+```
+http://localhost:80/
+```
+Aucune action n'est requise pour le lancement du frontend. Il suffit simplement d'accéder à l'URL suivi d'une des deux routes disponibles.
 
 <br>
 
@@ -59,15 +71,13 @@ Depuis la page des produits (*`/products.html`* ), l'utilisateur a la possibilit
 
 <br>
 
-___
-
 ## Présentation de la partie backend
 
 <br>
 
 ### **Contenu**
 
-**mfsd_backend_1** est une API type e-commerce développée en Python Flask.
+*MFSD backend* est une API type e-commerce développée en Python Flask.
 
 L'API permet d'effectuer les action **CRUD** (Create, Read, Update, Delete) sur des produits d'un shop en ligne.
 
@@ -88,7 +98,7 @@ L'API interagit avec une base de données **SQLite** à l'aide des ORM **SQLAlch
 
 L'API est déployée dans un conteneur Docker et fonctionne sur l'adresse suivante :
 ```
-http://localhost:5000
+http://localhost:5000/
 ```
 Celle-ci sera lancée durant l'execution sur Docker Compose, expliqué plus bas.
 
@@ -96,7 +106,7 @@ Celle-ci sera lancée durant l'execution sur Docker Compose, expliqué plus bas.
 
 ### **Utilisation**
 
-Voici 3 manières différentes d'utiliser l'API :
+Voici 2 manières différentes d'utiliser l'API :
 
 1. Avec la console grace à la commande `curl`
 2. Avec un `navigateur web` ( méthodes GET uniquement )
@@ -143,8 +153,6 @@ Commande curl :
 curl -X DELETE http://localhost:5000/product/3
 ```
 
-___
-
 ## Présentation de la base de données
 
 La base de données est une base SQLite. Elle contient une seule et unique table : `Product`
@@ -162,8 +170,6 @@ La base de données est une base SQLite. Elle contient une seule et unique table
 ```
 
 <br>
-
-___
 
 ## Build du projet
 
@@ -205,4 +211,11 @@ mfsd_backend |  * Running on http://172.19.0.2:5000/ (Press CTRL+C to quit)
 mfsd_backend |  * Restarting with stat
 mfsd_backend |  * Debugger is active!
 mfsd_backend |  * Debugger PIN: 770-172-041
-````
+```
+
+<br>
+
+### Annexes
+
+##### Lien vers l'image `maxflaskstoredeluxe_frontend` sur DockerHub : https://hub.docker.com/repository/docker/maximedubost/maxflaskstoredeluxe_frontend
+##### Lien vers l'image `maxflaskstoredeluxe_backend` sur DockerHub : https://hub.docker.com/repository/docker/maximedubost/maxflaskstoredeluxe_backend
