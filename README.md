@@ -1,4 +1,4 @@
-# MaxFlaskStoreDeluxe
+# Site web e-commerce avec Python Flask, SQLite et Docker
 
 ## Sommaire
 
